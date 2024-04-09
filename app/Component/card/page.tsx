@@ -4,7 +4,7 @@ import { Anchor, Button, Card, Flex, Image, Text } from "@mantine/core";
 import UserImage from "../logo/page";
 import { useState } from "react";
 
-const UserCard = ({ name, email, phone, website, onDelete, id }) => {
+const UserCard = ({ name, email, phone, website, onDelete, id, user }) => {
   const [followUser, setFollowUser] = useState(false);
 
   const handleFollowUser = (id: number) => {
@@ -25,7 +25,7 @@ const UserCard = ({ name, email, phone, website, onDelete, id }) => {
         margin: "10px",
       }}
     >
-      <UserImage name={name} />
+      <UserImage user={user} />
       <Text size="md" fw={500} style={{ marginTop: "10px" }}>
         <Flex
           mih={50}
@@ -94,7 +94,7 @@ const UserCard = ({ name, email, phone, website, onDelete, id }) => {
         align="flex-start"
         direction="row"
         wrap="wrap"
-        style={{ marginTop: "20px" , marginLeft:'-70px' }}
+        style={{ marginTop: "20px", marginLeft: "-70px" }}
       >
         <Button onClick={() => handleFollowUser(id)} style={{ width: "150px" }}>
           <Flex gap="xs" align="center">

@@ -49,6 +49,7 @@ export default function HomePage() {
 
         return (
           <UserCard
+            user={user}
             key={index}
             name={name}
             email={email}
