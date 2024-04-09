@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import UserCard from "./Component/card/page";
 import LoadingIcons from "react-loading-icons";
 import { BarLoader } from "react-spinners";
+import { Box, Paper } from "@mantine/core";
 
 export default function HomePage() {
   interface User {
@@ -43,13 +44,13 @@ export default function HomePage() {
   }
 
   return (
-    <div
+    <Paper
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-        gap: "10px",
+        gap: "20px",
         gridAutoFlow: "row",
-        overflow: "hidden",
+        overflowX: "auto",
       }}
     >
       {user.map((user: any, index: number) => {
@@ -68,6 +69,6 @@ export default function HomePage() {
           ></UserCard>
         );
       })}
-    </div>
+    </Paper>
   );
 }
