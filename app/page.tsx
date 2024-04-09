@@ -9,8 +9,6 @@ export default function HomePage() {
 
   const [loading, setLoading] = useState(true);
 
-  const [followUser, setFollowUser] = useState(false);
-
   const fetchData = async () => {
     const result = await fetch("https://jsonplaceholder.typicode.com/users");
     const data = await result.json();
@@ -18,13 +16,10 @@ export default function HomePage() {
     setLoading(false);
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = (id: number) => {
     setUserDetail((user) => user.filter((user) => user.id !== id));
   };
 
-  const handleFollowUser = (id) => {
-    console.log(id);
-  };
   useEffect(() => {
     setTimeout(() => {
       fetchData();
@@ -61,7 +56,6 @@ export default function HomePage() {
             website={website}
             onDelete={handleDelete}
             id={id}
-            followFunction = {handleFollowUser}
           ></UserCard>
         );
       })}
