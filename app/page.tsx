@@ -7,7 +7,9 @@ import { BarLoader } from "react-spinners";
 export default function HomePage() {
   const [user, setUserDetail] = useState();
 
-  const [loading, setLoading] = useState(true); // Define the loading state
+  const [loading, setLoading] = useState(true);
+
+  const [followUser, setFollowUser] = useState(false);
 
   const fetchData = async () => {
     const result = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -16,6 +18,13 @@ export default function HomePage() {
     setLoading(false);
   };
 
+  const handleDelete = (id) => {
+    setUserDetail((user) => user.filter((user) => user.id !== id));
+  };
+
+  const handleFollowUser = (id) => {
+    console.log(id);
+  };
   useEffect(() => {
     setTimeout(() => {
       fetchData();
@@ -41,7 +50,7 @@ export default function HomePage() {
       }}
     >
       {user.map((user: any, index: number) => {
-        const { name, email, phone, website } = user;
+        const { name, email, phone, website, id } = user;
 
         return (
           <UserCard
@@ -50,6 +59,9 @@ export default function HomePage() {
             email={email}
             phone={phone}
             website={website}
+            onDelete={handleDelete}
+            id={id}
+            followFunction = {handleFollowUser}
           ></UserCard>
         );
       })}

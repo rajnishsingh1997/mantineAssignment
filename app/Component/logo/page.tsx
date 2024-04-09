@@ -2,7 +2,7 @@
 import { Image } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 
-const UserImage = ({name}) => {
+const UserImage = ({ name }) => {
   const [logo, setLogo] = useState("");
 
   const getUserLogo = async (name: string) => {
@@ -16,8 +16,6 @@ const UserImage = ({name}) => {
   useEffect(() => {
     getUserLogo(name);
   }, []);
-
-  console.log(logo);
 
   return (
     <div>

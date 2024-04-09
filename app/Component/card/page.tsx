@@ -3,7 +3,15 @@ import { Anchor, Button, Card, Flex, Image, Text } from "@mantine/core";
 
 import UserImage from "../logo/page";
 
-const UserCard = ({ name, email, phone, website }) => {
+const UserCard = ({
+  name,
+  email,
+  phone,
+  website,
+  onDelete,
+  id,
+  followFunction,
+}) => {
   return (
     <Card
       shadow="xl"
@@ -16,7 +24,6 @@ const UserCard = ({ name, email, phone, website }) => {
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        
       }}
     >
       <UserImage name={name} />
@@ -58,7 +65,7 @@ const UserCard = ({ name, email, phone, website }) => {
         wrap="wrap"
         style={{ marginTop: "20px" }}
       >
-        <Button style={{ width: "150px" }}>
+        <Button onClick={() => followFunction(id)} style={{ width: "150px" }}>
           <Flex gap="xs" align="center">
             <span>
               <svg
@@ -83,7 +90,7 @@ const UserCard = ({ name, email, phone, website }) => {
             <Text style={{ marginLeft: "5px" }}>Follow</Text>
           </Flex>
         </Button>
-        <Button style={{ width: "150px" }}>
+        <Button onClick={() => onDelete(id)} style={{ width: "150px" }}>
           <Flex gap="xs" align="center">
             <span>
               <svg
