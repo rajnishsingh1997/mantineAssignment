@@ -3,7 +3,7 @@ import { Image } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 
 const UserImage = ({ user }) => {
-  // console.log(user);
+
   const { name } = user;
   const [logo, setLogo] = useState("");
 
@@ -12,7 +12,7 @@ const UserImage = ({ user }) => {
       `https://api.dicebear.com/7.x/initials/svg?seed=${name}`
     );
     const data = res;
-    // console.log(data.url);
+
     setLogo(data.url);
   };
   useEffect(() => {

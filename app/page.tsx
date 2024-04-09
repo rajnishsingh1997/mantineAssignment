@@ -5,7 +5,15 @@ import LoadingIcons from "react-loading-icons";
 import { BarLoader } from "react-spinners";
 
 export default function HomePage() {
-  const [user, setUserDetail] = useState();
+  interface User {
+    id: number;
+    name: string;
+    email: string;
+    phone: string;
+    website: string;
+  }
+
+  const [user, setUserDetail] = useState<User[]>([]);
 
   const [loading, setLoading] = useState(true);
 
